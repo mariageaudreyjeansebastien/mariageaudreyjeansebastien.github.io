@@ -142,8 +142,8 @@
 						    <input type="text" id="telephone" name="telephone" placeholder="Votre téléphone...">
 						</div>
 						<div class="col-md-6">
-						    <label for="email">Email</label>
-						    <input type="text" id="email" name="email" placeholder="Votre email...">
+						    <label for="guestemail">Email</label>
+						    <input type="text" id="guestemail" name="guestemail" placeholder="Votre email...">
 						</div>
 						<div class="col-md-6 rsvpblock">
 						    <label for="seraiPresent" style="padding: 0px 30px 0px 0px">Je serai présent</label>
@@ -229,10 +229,10 @@
 
 <script type="text/javascript">
 
-$( document ).ready(function() {
+(function() {
     GoingToEventCheck();
     InvitesCheck();
-});
+})();
 
 function GoingToEventCheck() {
     if (document.getElementById('goingToEvent').checked) {
