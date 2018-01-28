@@ -56,6 +56,7 @@
 	<link rel="stylesheet" href="css/magnific-popup.css">
 	
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/rsvpform.css">
 
 
 	<!-- Modernizr JS -->
@@ -79,6 +80,7 @@
 							<div class="col-md-10 col-md-offset-1">
 								<div class="animate-box">
 									<h2>Inscription</h2>
+									<p><span>RSVP</span></p>
 								</div>
 							</div>
 						</div>
@@ -115,18 +117,79 @@
 
 		<!-- end:header-top -->
 		
-		<div id="fh5co-couple" class="fh5co-section-gray">
+		<div id="fh5co-when-where" class="fh5co-section-gray">
 			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="col-md-12 text-center heading-section">
-							<h2>En Construction...</h2>
-						</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+						<h2 style="padding: 50px 0px 0px 0px">Pour invités seulement</h2>
+					</div>
+					<div class="col-md-12">
+						<h2 style="padding: 0px 0px 20px 0px">Si vous êtes invités et que vous n'avez pas encore répondu, Répondez S'il Vous Plait</h2>
 					</div>
 				</div>
+				<form action="https://formspree.io/jeansebastiengravel@hotmail.com" method="POST">
+					<div class="rsvp-form">
+						<div class="col-md-6">
+							<label for="fname">Prénom</label>
+						    <input type="text" id="fname" name="firstname" placeholder="Votre prénom...">
+						</div>
+						<div class="col-md-6">
+						    <label for="lname">Nom de famille</label>
+						    <input type="text" id="lname" name="lastname" placeholder="Votre nom de famille...">
+						</div>
+						<div class="col-md-6">
+							<label for="telephone">Télephone</label>
+						    <input type="text" id="telephone" name="telephone" placeholder="Votre téléphone...">
+						</div>
+						<div class="col-md-6">
+						    <label for="email">Email</label>
+						    <input type="text" id="email" name="email" placeholder="Votre email...">
+						</div>
+						<div class="col-md-6 rsvpblock">
+						    <label for="seraiPresent" style="padding: 0px 30px 0px 0px">Je serai présent</label>
+							<input type="radio" id ="goingToEvent" name="present" value="presentoui" onclick="javascript:GoingToEventCheck();"><span style="padding: 0px 30px 0px 10px">Oui</span>
+							<input type="radio" id ="notGoingToEvent" name="present" value="presentnon" onclick="javascript:GoingToEventCheck();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+						</div>
+						<div id="goingDiv" style="display:none">
+						    <label for="vegatarien" style="padding: 0px 30px 0px 0px">Je suis végétarien(ne)</label>
+							<input type="radio" id ="goingToEvent" name="vege" value="vegetarienOui"><span style="padding: 0px 30px 0px 10px">Oui</span>
+							<input type="radio" id ="notGoingToEvent" name="vege" value="vegetarienNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+
+							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
+							    <label for="accompagnent" style="padding: 0px 30px 0px 0px">J'apporte un(des) invité(s)</label>
+								<input type="radio" id ="OuiInvites" name="invites" value="invitesOui" onclick="javascript:InvitesCheck();"><span style="padding: 0px 30px 0px 10px">Oui</span>
+								<input type="radio" id ="NonInvites" name="invites" value="invitesNon" onclick="javascript:InvitesCheck();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+							</div>
+							<div id="invitesDiv" style="display:none">
+								<div class="col-md-6">
+									<label for="combien" style="padding: 0px 30px 0px 0px">Combien?</label>
+							    	<select id="invites" name="invites">
+								        <option value="un">1</option>
+								        <option value="deux">2</option>
+								        <option value="trois">3</option>
+								        <option value="quatre">4</option>
+							    	</select>
+								</div>
+								<div class="col-md-6">
+									<label for="nomcomplet">Nom complet du ou des invités</label>
+									<input type="text" id="nomsinvites" name="nomsinvites" placeholder="Prénom Nom, Prénom Nom, Prénom Nom, ...">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+						    <label for="subject">Notes</label>
+						    <textarea id="Notes" name="Notes" placeholder="Quelque chose à dire aux mariés...?" style="height:200px"></textarea>
+
+					    	<input type="submit" value="Envoyer">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 
+		<br>
+		<br>
+		
 		<div id="fh5co-started" style="background-image:url(images/cover_bg_2.jpg);">
 		<div class="overlay"></div>
 			<div class="container">
@@ -163,6 +226,31 @@
 
 	</div>
 	<!-- END fh5co-wrapper -->
+
+<script type="text/javascript">
+
+$( document ).ready(function() {
+    GoingToEventCheck();
+    InvitesCheck();
+});
+
+function GoingToEventCheck() {
+    if (document.getElementById('goingToEvent').checked) {
+        document.getElementById('goingDiv').style.display = 'block';
+    }
+    else document.getElementById('goingDiv').style.display = 'none';
+
+}
+
+function InvitesCheck() {
+    if (document.getElementById('OuiInvites').checked) {
+        document.getElementById('invitesDiv').style.display = 'block';
+    }
+    else document.getElementById('invitesDiv').style.display = 'none';
+
+}
+
+</script>
 
 	<!-- Google Map -->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
