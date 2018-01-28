@@ -528,10 +528,10 @@ figure {
 }
 
 #fh5co-couple,
-#fh5co-countdown,
 #fh5co-groom-bride,
 #fh5co-blog-section,
 #fh5co-started,
+#fh5co-started-noposition
 #fh5co-when-where,
 #fh5co-guest,
 #fh5co-gallery,
@@ -545,6 +545,7 @@ figure {
   #fh5co-groom-bride,
   #fh5co-blog-section,
   #fh5co-started,
+  #fh5co-started-noposition
   #fh5co-when-where,
   #fh5co-guest,
   #fh5co-gallery,
@@ -604,7 +605,6 @@ figure {
 }
 
 #fh5co-countdown {
-  background: #F69D9D;
 }
 
 #fh5co-countdown .countdown {
@@ -679,7 +679,7 @@ figure {
   font-size: 14px;
 }
 
-#fh5co-started {
+#fh5co-started, #fh5co-started-noposition {
   position: relative;
   background-size: cover;
   background-position: bottom center;
@@ -872,7 +872,8 @@ figure {
 
 #map {
   width: 100%;
-  height: 500px;
+  height: 700px;
+  margin: 0px 0px 45px 0px;
   position: relative;
 }
 

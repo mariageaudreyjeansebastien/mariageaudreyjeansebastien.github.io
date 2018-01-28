@@ -78,9 +78,7 @@
 						<div class="container">
 							<div class="col-md-10 col-md-offset-1">
 								<div class="animate-box">
-									<h1>Mariage</h1>
-									<h2>Audrey &amp; Jean-Sebastien</h2>
-									<p><span>23 juin 2018</span></p>
+									<h2>Quand et Où</h2>
 								</div>
 							</div>
 						</div>
@@ -97,7 +95,7 @@
 					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li class="active"><a href="index.html" >Accueil</a></li>
+							<li><a href="index.html" >Accueil</a></li>
 							<li>
 								<a href="mariees.html">Les mariées</a>
 							</li>
@@ -105,7 +103,7 @@
 							<li><a href="cortege.html">Le cortège</a></li>
 							
 							<li><a href="inscription.html">Inscription</a></li>
-							<li><a href="quandetou.html">Quand &amp; Où</a></li>
+							<li class="active"><a href="quandetou.html">Quand &amp; Où</a></li>
 							
 							<li><a href="chambres.html">Hébergement</a></li>
 							<li><a href="galerie.html">Galerie</a></li>
@@ -117,34 +115,66 @@
 
 		<!-- end:header-top -->
 		
-		<div id="fh5co-couple" class="fh5co-section-gray">
+
+		<div id="fh5co-when-where" class="fh5co-section-gray">
 			<div class="container">
-				<div class="row row-bottom-padded-md animate-box">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-							<img src="images/groom.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-							<h3>Jean-Sebastien Gravel</h3>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+						<h2 style="padding: 50px 0px 0px 0px">Déroulement de la journée</h2>
+					</div>
+				</div>
+				<div class="row row-bottom-padded-md">
+					<div class="col-md-6 text-center animate-box">
+						<div class="wedding-events">
+							<div class="ceremony-bg" style="background-image: url(images/EgliseSaintFrancoisBromont.jpg);"></div>
+							<div class="desc">
+								<h3>La Cérémonie</h3>
+								<p><strong>Samedi, 23 Juin, 2018, 3.00 PM - 5.00PM @ Église de Saint-Francois-Xavier, rue Shefford, Bromont</strong></p>
+								<p>Situé à environ 5 min du mont Bromont, cette église saura nous combler de bonheur en nous acceuillant à bras ouvert.</p>
+							</div>
 						</div>
-						<div class="col-md-2 col-sm-2 col-xs-2 nopadding"><h2 class="amp-center"><i class="icon-heart"></i></h2></div>
-						<div class="col-md-5 col-sm-5 col-xs-5 nopadding">
-							<img src="images/bride.jpg" class="img-responsive" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
-							<h3>Audrey Chartrand</h3>
+					</div>
+					<div class="col-md-6 text-center animate-box">
+						<div class="wedding-events">
+							<div class="ceremony-bg" style="background-image: url(images/chateau_bromont.jpg);"></div>
+							<div class="desc">
+								<h3>La Célébration</h3>
+								<p><strong>Samedi, 23 Juin, 2018, 6.00 PM - 3.00AM @ Domaine Château-Bromont</strong></p>
+								<p>Situé juste en bas de la montagne, le Château-Bromont nous acceuilleras d'abord avec un cocktail sur la terrasse, si la température le permet. Une salle sera disponible à l'interieur en cas de pluie. Un beau Jardin est également disponbile afin de prendre de magnifique photos.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2">
-						<div class="col-md-12 text-center heading-section">
-							<h2>Se Marie</h2>
-							<p><strong>Le 23 juin, 2018</strong></p>
-							<p><strong>Cérémonie 15h</strong> - Église de Saint-Francois-Xavier, rue Shefford, Bromont</p>
-							<p><strong>Réception</strong> - Domaine Château-Bromont</p>
-						</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div id="map" class="fh5co-map"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
+    <script>
+      function initMap() {
+        var eglise = {lat: 45.319254, lng: -72.654631};
+        var chateau = {lat: 45.305027, lng: -72.637671};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: chateau
+        });
+        var markereglise = new google.maps.Marker({
+          position: eglise,
+          map: map,
+          title: "Eglise"
+        });
+        var marker = new google.maps.Marker({
+          position: chateau,
+          map: map,
+          title: "Chateau Bromont"
+        });
+      }
+    </script>
+
 		<div id="fh5co-started" style="background-image:url(images/cover_bg_2.jpg);">
 		<div class="overlay"></div>
 			<div class="container">
@@ -183,7 +213,7 @@
 	<!-- END fh5co-wrapper -->
 
 	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkKB_B2x3VnW5LXUGH8iu_Y-k2zjETxzw&callback=initMap"></script>
 	<!-- jQuery -->
 	<script src="dist/scripts.js"></script>
 	</body>
