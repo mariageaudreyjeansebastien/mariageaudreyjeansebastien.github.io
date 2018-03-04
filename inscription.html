@@ -147,33 +147,39 @@
 						</div>
 						<div class="col-md-6 rsvpblock">
 						    <label for="seraiPresent" style="padding: 0px 30px 0px 0px">Je serai présent</label>
-							<input type="radio" id ="goingToEvent" name="present" value="presentoui" onclick="javascript:GoingToEventCheck();"><span style="padding: 0px 30px 0px 10px">Oui</span>
-							<input type="radio" id ="notGoingToEvent" name="present" value="presentnon" onclick="javascript:GoingToEventCheck();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+							<div>
+								<input type="radio" id ="goingToEvent" name="present" value="presentoui" onclick="javascript:GoingToEventCheck();"><span style="padding: 0px 30px 0px 10px">Oui</span>
+								<input type="radio" id ="notGoingToEvent" name="present" value="presentnon" onclick="javascript:GoingToEventCheck();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+							</div>
 						</div>
 						<div id="goingDiv" style="display:none">
 							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
 							    <label for="vegatarien" style="padding: 0px 30px 0px 0px">Restriction alimentaire</label>
-								<input type="radio" id ="vegetarien" name="vege" value="vegetarienOui"><span style="padding: 0px 30px 0px 10px">Oui</span>
-								<input type="radio" id ="vegetarien" name="vege" value="vegetarienNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								<div>
+									<input type="radio" id ="vegetarien" name="vege" value="vegetarienOui"><span style="padding: 0px 30px 0px 10px">Oui</span>
+									<input type="radio" id ="vegetarien" name="vege" value="vegetarienNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								</div>
 							</div>
 							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
-							    <label for="detailrestriction" style="padding: 0px 30px 0px 0px">Détails</label>
+							    <label for="detailrestriction" style="padding: 0px 30px 0px 0px">Détails de la restriction</label>
 								<input type="text" id="restrictionalimentaire" name="restrictionalimentaire" placeholder="Allergie(s), Végétarien,  etc...">
 							</div>
 
 							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
 							    <label for="accompagnent" style="padding: 0px 30px 0px 0px">J'apporte un(des) invité(s)</label>
-								<input type="radio" id ="OuiInvites" name="invites" value="invitesOui" onclick="javascript:InvitesCheck();"><span style="padding: 0px 30px 0px 10px">Oui</span>
-								<input type="radio" id ="NonInvites" name="invites" value="invitesNon" onclick="javascript:InvitesCheck();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								<div>
+									<input type="radio" id ="OuiInvites" name="invites" value="invitesOui" onclick="javascript:InvitesCheck(); AdjustChoiceList();"><span style="padding: 0px 30px 0px 10px">Oui</span>
+									<input type="radio" id ="NonInvites" name="invites" value="invitesNon" onclick="javascript:InvitesCheck(); AdjustChoiceList();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								</div>
 							</div>
 							<div id="invitesDiv" style="display:none">
 								<div class="col-md-6" style="padding: 0px 0px 30px 15px">
 									<label for="combien" style="padding: 0px 30px 0px 0px">Combien?</label>
-							    	<select id="invites" name="invites">
-								        <option value="un">1</option>
-								        <option value="deux">2</option>
-								        <option value="trois">3</option>
-								        <option value="quatre">4</option>
+							    	<select id="invites" name="invites" onchange="AdjustChoiceList();">
+								        <option value=1>1</option>
+								        <option value=2>2</option>
+								        <option value=3>3</option>
+								        <option value=4>4</option>
 							    	</select>
 								</div>
 								<div class="col-md-6" style="padding: 0px 0px 30px 15px">
@@ -181,20 +187,41 @@
 									<input type="text" id="nomsinvites" name="nomsinvites" placeholder="Prénom Nom, Prénom Nom, Prénom Nom, ...">
 								</div>
 							</div>
+							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
+								<label for="repas" style="padding: 0px 30px 0px 0px">Choix des repas (un par personne)</label>
+								<div>
+									<span style="padding: 0px 30px 0px 10px">Suprême de volaille fermier à la moutarde de Meaux et estragon</span>
+							    	<select id="qtyRepasPoulet" name="qtyRepasPoulet" onchange="ValidateMealTotal('qtyRepasPoulet', 'qtyRepasSaumon')">
+										<option value=0>0</option>
+										<option value=1>1</option>
+							    	</select>
+								</div>
+								<div>
+									<span style="padding: 0px 30px 0px 10px">Escalope de saumon, crème ciboulette et zeste de citron</span>
+									<select id="qtyRepasSaumon" name="qtyRepasSaumon" onchange="ValidateMealTotal('qtyRepasSaumon', 'qtyRepasPoulet')">
+										<option value=0>0</option>
+										<option value=1>1</option>
+							    	</select>
+								</div>
+							</div>
 							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
 							    <label for="hebergement" style="padding: 0px 30px 0px 0px">Je désire dormir au Chateau-Bromont (Voir section Hébergement pour les tarifs)</label>
-								<input type="radio" id ="chambreOui" name="chambre" value="chambreOui" ><span style="padding: 0px 30px 0px 10px">Oui</span>
-								<input type="radio" id ="chambreNon" name="chambre" value="chambreNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								<div>
+									<input type="radio" id ="chambreOui" name="chambre" value="chambreOui" ><span style="padding: 0px 30px 0px 10px">Oui</span>
+									<input type="radio" id ="chambreNon" name="chambre" value="chambreNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								</div>
 							</div>
 							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
 							    <label for="dejeuner" style="padding: 0px 30px 0px 0px">Je désire déjeuner au Chateau-Bromont le lendemain matin (Voir section Hébergement pour les tarifs)</label>
+								<div>
 								<input type="radio" id ="dejeunerOui" name="dejeuner" value="dejeunerOui" ><span style="padding: 0px 30px 0px 10px">Oui</span>
 								<input type="radio" id ="dejeunerNon" name="dejeuner" value="dejeunerNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								</div>
 							</div>
 						</div>
 						<div class="col-md-12">
 						    <label for="subject">Notes</label>
-						    <textarea id="Notes" name="Notes" placeholder="Quelque chose à dire aux mariés...?" style="height:200px"></textarea>
+						    <textarea id="Notes" name="Notes" placeholder="Quelque chose à dire aux futurs mariés...?" style="height:200px"></textarea>
 
 					    	<input type="submit" value="Envoyer">
 						</div>
@@ -266,6 +293,65 @@ function InvitesCheck() {
     else document.getElementById('invitesDiv').style.display = 'none';
 
 }
+
+function AdjustChoiceList() {
+	var inviteList = document.getElementById("invites");
+	var nbInvites = Number(inviteList.options[inviteList.selectedIndex].value);
+	var checkboxInvites = document.getElementById("OuiInvites");
+	var yesCheckboxInvites = checkboxInvites.checked;
+	
+	if(yesCheckboxInvites) {
+		removeAllOptions();
+		loopAddOptions(nbInvites+1);
+	
+	} else {
+		removeAllOptions();
+		addOption(0);
+		addOption(1);
+	}
+}
+
+function addOption(value){
+	var pouletQty = document.getElementById("qtyRepasPoulet");
+	var SaumonQty = document.getElementById("qtyRepasSaumon");
+	
+	pouletQty.options[pouletQty.options.length] = new Option(value, value);
+	SaumonQty.options[SaumonQty.options.length] = new Option(value, value);
+}
+
+function loopAddOptions(max) {
+	for(var i = 0; i <= max; i++) {
+		addOption(i);
+	}
+}
+
+function removeAllOptions(){
+	var pouletQty = document.getElementById("qtyRepasPoulet");
+	var SaumonQty = document.getElementById("qtyRepasSaumon");
+	pouletQty.options.length = 0;
+	SaumonQty.options.length = 0;
+}
+
+function ValidateMealTotal(currentId, idToChangeIfTooMuch) {
+	var pouletQty = Number(document.getElementById("qtyRepasPoulet").value);
+	var SaumonQty = Number(document.getElementById("qtyRepasSaumon").value);
+	var inviteList = document.getElementById("invites");
+	var nbInvites = Number(inviteList.options[inviteList.selectedIndex].value);
+	var checkboxInvites = document.getElementById("OuiInvites");
+	var yesCheckboxInvites = checkboxInvites.checked;
+	
+	if(yesCheckboxInvites) {
+	} else {
+		nbInvites = 0;
+	}
+	
+	if((pouletQty + SaumonQty) > (nbInvites + 1)) {
+		var selectToChange = document.getElementById(idToChangeIfTooMuch);
+		selectToChange.value = ((nbInvites + 1) - document.getElementById(currentId).value);
+	} else {
+	}
+}
+
 
 </script>
 
