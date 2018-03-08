@@ -165,47 +165,93 @@
 								<input type="text" id="restrictionalimentaire" name="restrictionalimentaire" placeholder="Allergie(s), Végétarien,  etc...">
 							</div>
 
-							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
+							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
 							    <label for="accompagnent" style="padding: 0px 30px 0px 0px">J'apporte un(des) invité(s)</label>
 								<div>
 									<input type="radio" id ="OuiInvites" name="invites" value="invitesOui" onclick="javascript:InvitesCheck(); AdjustChoiceList();"><span style="padding: 0px 30px 0px 10px">Oui</span>
 									<input type="radio" id ="NonInvites" name="invites" value="invitesNon" onclick="javascript:InvitesCheck(); AdjustChoiceList();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
 								</div>
+
 							</div>
 							<div id="invitesDiv" style="display:none">
 								<div class="col-md-6" style="padding: 0px 0px 30px 15px">
 									<label for="combien" style="padding: 0px 30px 0px 0px">Combien?</label>
-							    	<select id="invites" name="invites" onchange="AdjustChoiceList();">
+							    	<select id="nbInvites" name="nbInvites" onchange="AdjustChoiceList();">
 								        <option value=1>1</option>
 								        <option value=2>2</option>
 								        <option value=3>3</option>
 								        <option value=4>4</option>
 							    	</select>
 								</div>
-								<div class="col-md-6" style="padding: 0px 0px 30px 15px">
-									<label for="nomcomplet">Nom complet du ou des invités</label>
-									<input type="text" id="nomsinvites" name="nomsinvites" placeholder="Prénom Nom, Prénom Nom, Prénom Nom, ...">
+
+							</div>
+							<div id="nomEtChoixDiv" style="display:none">
+								<div class="col-md-6">
+									<label for="labelNomc">Noms des invités</label>
+								</div>
+								<div class="col-md-6">
+									<label for="labelRepas">Repas des invités</label>
+								</div>
+								<div id="invite1" class="col-md-12">
+									<div class="col-md-6">
+										<span style="position: absolute;left: -1px; top: 18px;">1. </span>
+										<input type="text" id="nomsinvite1" name="nomsinvite1" placeholder="Prénom Nom...">
+									</div>
+									<div class="col-md-6">
+										<select id="choixInvite1" name="choixInvite1">
+										<option value="0"></option>
+										<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
+										<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
+										<option value="enfant">Enfant (12 ans et moins)</option>
+							    	</select>
+									</div>
+								</div>
+								<div id="invite2" class="col-md-12" style="display:none">
+									<div class="col-md-6">
+										<span style="position: absolute;left: -1px; top: 18px;">2. </span>
+										<input type="text" id="nomsinvite2" name="nomsinvite2" placeholder="Prénom Nom...">
+									</div>
+									<div class="col-md-6">
+										<select id="choixInvite2" name="choixInvite2">
+										<option value="0"></option>
+										<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
+										<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
+										<option value="enfant">Enfant (12 ans et moins)</option>
+							    	</select>
+									</div>
+								</div>
+								<div id="invite3" class="col-md-12" style="display:none;">
+									<div class="col-md-6">
+										<span style="position: absolute;left: -1px; top: 18px;">3. </span>
+										<input type="text" id="nomsinvite3" name="nomsinvite3" placeholder="Prénom Nom...">
+									</div>
+									<div class="col-md-6">
+										<select id="choixInvite3" name="choixInvite3">
+										<option value="0"></option>
+										<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
+										<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
+										<option value="enfant">Enfant (12 ans et moins)</option>
+							    	</select>
+									</div>
+								</div>
+								<div id="invite4" class="col-md-12" style="display:none;">
+									<div class="col-md-6">
+										<span style="position: absolute;left: -1px; top: 18px;">4. </span>
+										<input type="text" id="nomsinvite4" name="nomsinvite4" placeholder="Prénom Nom...">
+									</div>
+									<div class="col-md-6">
+										<select id="choixInvite4" name="choixInvite4">
+										<option value="0"></option>
+										<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
+										<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
+										<option value="enfant">Enfant (12 ans et moins)</option>
+							    	</select>
+									</div>
 								</div>
 							</div>
-							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
-								<label for="repas" style="padding: 0px 30px 0px 0px">Choix des repas (un par personne)</label>
-								<div>
-									<span style="padding: 0px 30px 0px 10px">Suprême de volaille fermier à la moutarde de Meaux et estragon</span>
-							    	<select id="qtyRepasPoulet" name="qtyRepasPoulet" onchange="ValidateMealTotal('qtyRepasPoulet', 'qtyRepasSaumon')">
-										<option value=0>0</option>
-										<option value=1>1</option>
-							    	</select>
-								</div>
-								<div>
-									<span style="padding: 0px 30px 0px 10px">Escalope de saumon, crème ciboulette et zeste de citron</span>
-									<select id="qtyRepasSaumon" name="qtyRepasSaumon" onchange="ValidateMealTotal('qtyRepasSaumon', 'qtyRepasPoulet')">
-										<option value=0>0</option>
-										<option value=1>1</option>
-							    	</select>
-								</div>
-							</div>
-							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
+							<div class="col-md-12" style="padding: 30px 0px 30px 15px">
 							    <label for="hebergement" style="padding: 0px 30px 0px 0px">Je désire dormir au Chateau-Bromont (Voir section Hébergement pour les tarifs)</label>
+								<label for="labelChambre" style="color: red; font-weight: normal;">(Reserver vous même votre chambre le plus tôt possible)</label>
 								<div>
 									<input type="radio" id ="chambreOui" name="chambre" value="chambreOui" ><span style="padding: 0px 30px 0px 10px">Oui</span>
 									<input type="radio" id ="chambreNon" name="chambre" value="chambreNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
@@ -289,69 +335,100 @@ function GoingToEventCheck() {
 function InvitesCheck() {
     if (document.getElementById('OuiInvites').checked) {
         document.getElementById('invitesDiv').style.display = 'block';
+		document.getElementById('nomEtChoixDiv').style.display = 'block';
     }
-    else document.getElementById('invitesDiv').style.display = 'none';
+    else {
+		document.getElementById('invitesDiv').style.display = 'none';
+		document.getElementById('nomEtChoixDiv').style.display = 'none';
+	}
 
 }
 
 function AdjustChoiceList() {
-	var inviteList = document.getElementById("invites");
+	var inviteList = document.getElementById("nbInvites");
 	var nbInvites = Number(inviteList.options[inviteList.selectedIndex].value);
 	var checkboxInvites = document.getElementById("OuiInvites");
 	var yesCheckboxInvites = checkboxInvites.checked;
 	
 	if(yesCheckboxInvites) {
-		removeAllOptions();
-		loopAddOptions(nbInvites+1);
-	
+		switch(nbInvites) {
+			case 1:
+				ShowInvite1();
+				HideInvite2();
+				HideInvite3();
+				HideInvite4();
+				break;
+			case 2:
+				ShowInvite1();
+				ShowInvite2();
+				HideInvite3();
+				HideInvite4();
+				break;
+			case 3:
+				ShowInvite1();
+				ShowInvite2();
+				ShowInvite3();
+				HideInvite4();
+				break;
+			case 4:
+				ShowInvite1();
+				ShowInvite2();
+				ShowInvite3();
+				ShowInvite4();
+				break;
+		}		
 	} else {
-		removeAllOptions();
-		addOption(0);
-		addOption(1);
+		ResetInvites();
 	}
 }
 
-function addOption(value){
-	var pouletQty = document.getElementById("qtyRepasPoulet");
-	var SaumonQty = document.getElementById("qtyRepasSaumon");
+function ResetInvites() {
+	document.getElementById('nbInvites').value = '1'
 	
-	pouletQty.options[pouletQty.options.length] = new Option(value, value);
-	SaumonQty.options[SaumonQty.options.length] = new Option(value, value);
+	document.getElementById('nomsinvite1').value= '';
+	document.getElementById('choixInvite1').value = '';
+	document.getElementById('nomsinvite2').value= '';
+	document.getElementById('choixInvite2').value = '';
+	document.getElementById('nomsinvite3').value= '';
+	document.getElementById('choixInvite3').value = '';
+	document.getElementById('nomsinvite4').value= '';
+	document.getElementById('choixInvite4').value = '';
 }
 
-function loopAddOptions(max) {
-	for(var i = 0; i <= max; i++) {
-		addOption(i);
-	}
+
+function ShowInvite1() {
+	document.getElementById('invite1').style.display = 'block';
+}
+function ShowInvite2() {
+	document.getElementById('invite2').style.display = 'block';
+}
+function ShowInvite3() {
+	document.getElementById('invite3').style.display = 'block';
+}
+function ShowInvite4() {
+	document.getElementById('invite4').style.display = 'block';
 }
 
-function removeAllOptions(){
-	var pouletQty = document.getElementById("qtyRepasPoulet");
-	var SaumonQty = document.getElementById("qtyRepasSaumon");
-	pouletQty.options.length = 0;
-	SaumonQty.options.length = 0;
+function HideInvite1() {
+	document.getElementById('invite1').style.display = 'none';
+	document.getElementById('nomsinvite1').value= '';
+	document.getElementById('choixInvite1').value = '';
 }
-
-function ValidateMealTotal(currentId, idToChangeIfTooMuch) {
-	var pouletQty = Number(document.getElementById("qtyRepasPoulet").value);
-	var SaumonQty = Number(document.getElementById("qtyRepasSaumon").value);
-	var inviteList = document.getElementById("invites");
-	var nbInvites = Number(inviteList.options[inviteList.selectedIndex].value);
-	var checkboxInvites = document.getElementById("OuiInvites");
-	var yesCheckboxInvites = checkboxInvites.checked;
-	
-	if(yesCheckboxInvites) {
-	} else {
-		nbInvites = 0;
-	}
-	
-	if((pouletQty + SaumonQty) > (nbInvites + 1)) {
-		var selectToChange = document.getElementById(idToChangeIfTooMuch);
-		selectToChange.value = ((nbInvites + 1) - document.getElementById(currentId).value);
-	} else {
-	}
+function HideInvite2() {
+	document.getElementById('invite2').style.display = 'none';
+	document.getElementById('nomsinvite2').value= '';
+	document.getElementById('choixInvite2').value = '';
 }
-
+function HideInvite3() {
+	document.getElementById('invite3').style.display = 'none';
+	document.getElementById('nomsinvite3').value= '';
+	document.getElementById('choixInvite3').value = '';
+}
+function HideInvite4() {
+	document.getElementById('invite4').style.display = 'none';
+	document.getElementById('nomsinvite4').value= '';
+	document.getElementById('choixInvite4').value = '';
+}
 
 </script>
 
