@@ -146,19 +146,17 @@
 						<div class="col-md-6 rsvpblock">
 						    <label for="seraiPresent" style="padding: 0px 30px 0px 0px">Je serai présent</label>
 							<div>
-								<input type="radio" id ="goingToEvent" name="present" value="presentoui" onclick="javascript:GoingToEventCheck();"><span style="padding: 0px 30px 0px 10px">Oui</span>
-								<input type="radio" id ="notGoingToEvent" name="present" value="presentnon" onclick="javascript:GoingToEventCheck();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+								<input required type="radio" id ="goingToEvent" name="present" value="presentoui" onclick="javascript:GoingToEventCheck();"><span style="padding: 0px 30px 0px 10px">Oui</span>
+								<input required type="radio" id ="notGoingToEvent" name="present" value="presentnon" onclick="javascript:GoingToEventCheck();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
 							</div>
 						</div>
 						<div id="goingDiv" style="display:none">
 							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
 								<label for="seraiPresent" style="padding: 0px 30px 0px 0px">Mon choix de repas</label>
-								<select id="choixInvitePrincipal" name="choixInvitePrincipal">
-									<option value="0"></option>
+								<select required id="choixInvitePrincipal" name="choixInvitePrincipal">
+									<option value=""></option>
 									<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
 									<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
-									<option value="enfantzerocinq">Enfant (0-5 ans)</option>
-									<option value="enfantsixdouze">Enfant (6-12 ans)</option>
 								</select>
 							</div>
 							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
