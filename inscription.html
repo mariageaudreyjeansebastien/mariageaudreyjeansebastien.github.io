@@ -153,17 +153,17 @@
 						<div id="goingDiv" style="display:none">
 							<div class="col-md-12" style="padding: 0px 0px 30px 15px">
 								<label for="seraiPresent" style="padding: 0px 30px 0px 0px">Mon choix de repas</label>
-								<select required id="choixInvitePrincipal" name="choixInvitePrincipal">
-									<option value=""></option>
+								<select id="choixInvitePrincipal" name="choixInvitePrincipal">
+									<option disabled selected value> -- Choisir votre repas -- </option>
 									<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
 									<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
 								</select>
 							</div>
 							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
-							    <label for="vegatarien" style="padding: 0px 30px 0px 0px">Restriction alimentaire</label>
+							    <label for="labelRestAlimentaire" style="padding: 0px 30px 0px 0px">Restriction alimentaire</label>
 								<div>
-									<input type="radio" id ="vegetarien" name="vege" value="vegetarienOui"><span style="padding: 0px 30px 0px 10px">Oui</span>
-									<input type="radio" id ="vegetarien" name="vege" value="vegetarienNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+									<input type="radio" id ="choixRestAlimentaireOui" name="choixRestAlimentaire" value="restAlimentaireOui"><span style="padding: 0px 30px 0px 10px">Oui</span>
+									<input type="radio" id ="choixRestAlimentaireNon" name="choixRestAlimentaire" value="restAlimentaireNon" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
 								</div>
 							</div>
 							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
@@ -174,15 +174,15 @@
 							<div class="col-md-6" style="padding: 0px 0px 30px 15px">
 							    <label for="accompagnent" style="padding: 0px 30px 0px 0px">J'apporte un(des) invité(s)</label>
 								<div>
-									<input type="radio" id ="OuiInvites" name="invites" value="invitesOui" onclick="javascript:InvitesCheck(); AdjustChoiceList();"><span style="padding: 0px 30px 0px 10px">Oui</span>
-									<input type="radio" id ="NonInvites" name="invites" value="invitesNon" onclick="javascript:InvitesCheck(); AdjustChoiceList();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
+									<input type="radio" id ="OuiInvites" name="invites" value="invitesOui" onclick="javascript:AdjustChoiceList();"><span style="padding: 0px 30px 0px 10px">Oui</span>
+									<input type="radio" id ="NonInvites" name="invites" value="invitesNon" onclick="javascript:AdjustChoiceList();" checked="checked"><span style="padding: 0px 30px 0px 10px">Non</span>
 								</div>
-
 							</div>
 							<div id="invitesDiv" style="display:none">
 								<div class="col-md-6" style="padding: 0px 0px 30px 15px">
 									<label for="combien" style="padding: 0px 30px 0px 0px">Combien?</label>
 							    	<select id="nbInvites" name="nbInvites" onchange="AdjustChoiceList();">
+										<option disabled selected value> -- Nombre d'invités -- </option>
 								        <option value=1>1</option>
 								        <option value=2>2</option>
 								        <option value=3>3</option>
@@ -205,7 +205,7 @@
 									</div>
 									<div class="col-md-6">
 										<select id="choixInvite1" name="choixInvite1">
-											<option value="0"></option>
+											<option disabled selected value> -- Choisir votre repas -- </option>
 											<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
 											<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
 											<option value="enfantzerocinq">Enfant (0-5 ans)</option>
@@ -220,7 +220,7 @@
 									</div>
 									<div class="col-md-6">
 										<select id="choixInvite2" name="choixInvite2">
-										<option value="0"></option>
+										<option disabled selected value> -- Choisir votre repas -- </option>
 										<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
 										<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
 										<option value="enfantzerocinq">Enfant (0-5 ans)</option>
@@ -235,7 +235,7 @@
 									</div>
 									<div class="col-md-6">
 										<select id="choixInvite3" name="choixInvite3">
-										<option value="0"></option>
+										<option disabled selected value> -- Choisir votre repas -- </option>
 										<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
 										<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
 										<option value="enfantzerocinq">Enfant (0-5 ans)</option>
@@ -250,7 +250,7 @@
 									</div>
 									<div class="col-md-6">
 										<select id="choixInvite4" name="choixInvite4">
-										<option value="0"></option>
+										<option disabled selected value> -- Choisir votre repas -- </option>
 										<option value="poulet">Suprême de volaille fermier à la moutarde de Meaux et estragon</option>
 										<option value="saumon">Escalope de saumon, crème ciboulette et zeste de citron</option>
 										<option value="enfantzerocinq">Enfant (0-5 ans)</option>
@@ -332,56 +332,60 @@
 
 (function() {
     GoingToEventCheck();
-    InvitesCheck();
+	AdjustChoiceList();
 })();
 
 function GoingToEventCheck() {
     if (document.getElementById('goingToEvent').checked) {
+		document.getElementById('choixInvitePrincipal').selectedIndex = -1;
+		document.getElementById('choixInvitePrincipal').required = true;
         document.getElementById('goingDiv').style.display = 'block';
-    }
-    else document.getElementById('goingDiv').style.display = 'none';
 
-}
-
-function InvitesCheck() {
-    if (document.getElementById('OuiInvites').checked) {
-        document.getElementById('invitesDiv').style.display = 'block';
-		document.getElementById('nomEtChoixDiv').style.display = 'block';
     }
     else {
-		document.getElementById('invitesDiv').style.display = 'none';
-		document.getElementById('nomEtChoixDiv').style.display = 'none';
+		document.getElementById('choixInvitePrincipal').required = false;
+		document.getElementById('goingDiv').style.display = 'none';
+		document.getElementById("NonInvites").checked = true
+		AdjustChoiceList();
 	}
-
 }
 
 function AdjustChoiceList() {
 	var inviteList = document.getElementById("nbInvites");
-	var nbInvites = Number(inviteList.options[inviteList.selectedIndex].value);
+	var nbInvites = 0;
+	if(typeof inviteList.options[inviteList.selectedIndex] !== "undefined") {
+		nbInvites = Number(inviteList.options[inviteList.selectedIndex].value);
+	}
 	var checkboxInvites = document.getElementById("OuiInvites");
 	var yesCheckboxInvites = checkboxInvites.checked;
 	
 	if(yesCheckboxInvites) {
+		document.getElementById('invitesDiv').style.display = 'block';
+		document.getElementById("nbInvites").required = true;
 		switch(nbInvites) {
 			case 1:
+				document.getElementById('nomEtChoixDiv').style.display = 'block';
 				ShowInvite1();
 				HideInvite2();
 				HideInvite3();
 				HideInvite4();
 				break;
 			case 2:
+				document.getElementById('nomEtChoixDiv').style.display = 'block';
 				ShowInvite1();
 				ShowInvite2();
 				HideInvite3();
 				HideInvite4();
 				break;
 			case 3:
+				document.getElementById('nomEtChoixDiv').style.display = 'block';
 				ShowInvite1();
 				ShowInvite2();
 				ShowInvite3();
 				HideInvite4();
 				break;
 			case 4:
+				document.getElementById('nomEtChoixDiv').style.display = 'block';
 				ShowInvite1();
 				ShowInvite2();
 				ShowInvite3();
@@ -389,12 +393,15 @@ function AdjustChoiceList() {
 				break;
 		}		
 	} else {
+		document.getElementById('invitesDiv').style.display = 'none';
+		document.getElementById('nomEtChoixDiv').style.display = 'none';
 		ResetInvites();
 	}
 }
 
 function ResetInvites() {
-	document.getElementById('nbInvites').value = '1'
+	document.getElementById('nbInvites').selectedIndex = -1;
+	document.getElementById("nbInvites").required = false;
 	
 	document.getElementById('nomsinvite1').value= '';
 	document.getElementById('choixInvite1').value = '';
