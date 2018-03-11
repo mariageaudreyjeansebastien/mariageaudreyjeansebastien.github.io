@@ -404,41 +404,68 @@ function ResetInvites() {
 	document.getElementById('choixInvite3').value = '';
 	document.getElementById('nomsinvite4').value= '';
 	document.getElementById('choixInvite4').value = '';
+	
+	document.getElementById('nomsinvite1').required = false;
+	document.getElementById('nomsinvite2').required = false;
+	document.getElementById('nomsinvite3').required = false;
+	document.getElementById('nomsinvite4').required = false;
+	
+	document.getElementById('choixInvite1').required = false;
+	document.getElementById('choixInvite2').required = false;
+	document.getElementById('choixInvite3').required = false;
+	document.getElementById('choixInvite4').required = false;
+	
 }
 
 
 function ShowInvite1() {
 	document.getElementById('invite1').style.display = 'block';
+	document.getElementById('nomsinvite1').required = true;
+	document.getElementById('choixInvite1').required = true;
 }
 function ShowInvite2() {
 	document.getElementById('invite2').style.display = 'block';
+	document.getElementById('nomsinvite2').required = true;
+	document.getElementById('choixInvite2').required = true;
 }
 function ShowInvite3() {
 	document.getElementById('invite3').style.display = 'block';
+	document.getElementById('nomsinvite3').required = true;
+	document.getElementById('choixInvite3').required = true;
 }
 function ShowInvite4() {
 	document.getElementById('invite4').style.display = 'block';
+	document.getElementById('nomsinvite4').required = true;
+	document.getElementById('choixInvite4').required = true;
 }
 
 function HideInvite1() {
 	document.getElementById('invite1').style.display = 'none';
 	document.getElementById('nomsinvite1').value= '';
 	document.getElementById('choixInvite1').value = '';
+	document.getElementById('nomsinvite1').required = true;
+	document.getElementById('choixInvite1').required = true;
 }
 function HideInvite2() {
 	document.getElementById('invite2').style.display = 'none';
 	document.getElementById('nomsinvite2').value= '';
 	document.getElementById('choixInvite2').value = '';
+	document.getElementById('nomsinvite2').required = false;
+	document.getElementById('choixInvite2').required = false;
 }
 function HideInvite3() {
 	document.getElementById('invite3').style.display = 'none';
 	document.getElementById('nomsinvite3').value= '';
 	document.getElementById('choixInvite3').value = '';
+	document.getElementById('nomsinvite3').required = false;
+	document.getElementById('choixInvite3').required = false;
 }
 function HideInvite4() {
 	document.getElementById('invite4').style.display = 'none';
 	document.getElementById('nomsinvite4').value= '';
 	document.getElementById('choixInvite4').value = '';
+	document.getElementById('nomsinvite4').required = false;
+	document.getElementById('choixInvite4').required = false;
 }
 
 </script>
